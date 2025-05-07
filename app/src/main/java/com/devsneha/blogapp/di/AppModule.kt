@@ -4,6 +4,7 @@ import com.devsneha.blogapp.Constants
 import com.devsneha.blogapp.data.remote.BlogApi
 import com.devsneha.blogapp.data.repository.BlogRepositoryImpl
 import com.devsneha.blogapp.domain.repository.BlogRepository
+import dagger.Binds
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -26,5 +27,5 @@ class AppModule {
 
     @Singleton
     @Provides
-    fun providesBlogRepository(blogApi: BlogApi): BlogRepositoryImpl = BlogRepositoryImpl(blogApi)
+    fun providesBlogRepository(blogApi: BlogApi): BlogRepository = BlogRepositoryImpl(blogApi)
 }

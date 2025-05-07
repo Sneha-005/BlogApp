@@ -15,11 +15,12 @@ import androidx.navigation.compose.rememberNavController
 import com.devsneha.blogapp.presentation.Screen
 import com.devsneha.blogapp.presentation.home.HomeScreen
 import com.devsneha.blogapp.ui.theme.BlogAppTheme
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
         setContent {
             BlogAppTheme {
                 Surface(
