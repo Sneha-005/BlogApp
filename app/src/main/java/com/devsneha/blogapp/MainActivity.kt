@@ -3,15 +3,16 @@ package com.devsneha.blogapp
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import androidx.navigation.navArgument
 import com.devsneha.blogapp.presentation.Screen
 import com.devsneha.blogapp.presentation.home.HomeScreen
 import com.devsneha.blogapp.ui.theme.BlogAppTheme
@@ -43,7 +44,14 @@ fun BlogApp() {
                 navController.navigate(Screen.BlogScreen.route.plus("/$it"))
             }
         }
-        composable(Screen.BlogScreen.route ) { backStackEntry ->
+        composable(
+            Screen.BlogScreen.route.plus("/{url}"),
+            arguments = listOf(
+                navArgument("url") {
+                    type = NavType.StringType
+                }
+            )
+        ) {
 
         }
     }
