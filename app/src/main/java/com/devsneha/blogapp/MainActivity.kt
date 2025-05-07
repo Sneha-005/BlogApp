@@ -14,6 +14,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.devsneha.blogapp.presentation.Screen
+import com.devsneha.blogapp.presentation.blog.BlogScreen
 import com.devsneha.blogapp.presentation.home.HomeScreen
 import com.devsneha.blogapp.ui.theme.BlogAppTheme
 import dagger.hilt.android.AndroidEntryPoint
@@ -52,7 +53,10 @@ fun BlogApp() {
                 }
             )
         ) {
-
+            val url = it.arguments?.getString("url")
+            if (url != null) {
+                BlogScreen(url)
+            }
         }
     }
 }
